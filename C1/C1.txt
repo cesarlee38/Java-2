@@ -1,0 +1,2 @@
+Clase 1 de java, se instala el jdk descargado de oracle
+copio la ruta de la carpeta bin y la pongo en la variable de entorno path que esta en las configuraciones avanzadas del sistema
