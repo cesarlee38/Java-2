@@ -7,6 +7,7 @@ public class Bienvenida extends JFrame implements ActionListener{
   private JTextField tf1;
   private JLabel l1, l2, l3, l4;
   private JButton b1;
+  public static String nombre = "";
 
   public Bienvenida(){
 
@@ -57,7 +58,18 @@ public class Bienvenida extends JFrame implements ActionListener{
 
   public void actionPerformed(ActionEvent e){
    if(e.getSource() == b1){
-    System.exit(0);
+    nombre = tf1.getText().trim(); // el metodo .trim() sirve para borrar espacios
+    if(nombre.equals("")){
+     JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre"); // esto sirve para mostrar mensajes
+   } else {
+     Licencia formulario = new Licencia();
+     formulario.setBounds(0,0,610,370);
+     formulario.setVisible(true);
+     formulario.setResizable(false);
+     formulario.setLocationRelativeTo(null);
+     dispose();
+     //this.setVisible(false);
+   }
   }
  }
 

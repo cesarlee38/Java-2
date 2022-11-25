@@ -10,12 +10,15 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
   private JButton b1, b2;
   private JScrollPane sp1;
   private JTextArea ta1;
+  private String nombre = "";
 
   public Licencia(){
 
    setLayout(null);
    setTitle("Licencia");
    setIconImage(new ImageIcon(getClass().getResource("images/icon.png")).getImage());
+   Bienvenida formulario = new Bienvenida(); //no importa que sea un nuevo objeto porque la varable es estatica, entonces no se "resetea"
+   nombre = formulario.nombre;
 
    l1 = new JLabel("TÉRMINOS Y CONDICIONES");
    l1.setBounds(215,5,200,30);
@@ -40,7 +43,7 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
    sp1.setBounds(10,40,575,200);
    add(sp1);
 
-   cb1 = new JCheckBox("Yo Acepto");
+   cb1 = new JCheckBox("Yo " + nombre + " Acepto");
    cb1.setBounds(10,250,300,30);
    cb1.addChangeListener(this);
    add(cb1);
@@ -65,15 +68,31 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
  }
 
   public void stateChanged(ChangeEvent e){
-   if(true){
+   if(cb1.isSelected() == true){
+    b1.setEnabled(true);
+    b2.setEnabled(false);
+  } else {
+    b1.setEnabled(false);
+    b2.setEnabled(true);
   }
  }
 
   public void actionPerformed(ActionEvent e){
    if(e.getSource() == b1){
+    Principal formulario = new Principal();
+    formulario.setBounds(0,0,640,535);
+    formulario.setVisible(true);
+    formulario.setResizable(false);
+    formulario.setLocationRelativeTo(null);
+    //this.setVisible(false);
   }
    if(e.getSource() == b2){
-    System.exit(0);
+    Bienvenida formulario = new Bienvenida();
+    formulario.setBounds(0,0,350,450);
+    formulario.setVisible(true);
+    formulario.setResizable(false);
+    formulario.setLocationRelativeTo(null);
+    //this.setVisible(false);
   }
  }
 
