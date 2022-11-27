@@ -1,0 +1,30 @@
+primero tenemos que hacer un archivo de manifiesto con los siguientes datos
+
+Manifest-Version: 1.0
+Created-By: Diego Cesar Morales Díaz
+Main-Class: Bienvenida
+X-COMMENT: Curso Java
+
+
+nota: debe ser todo eso y aparte un salto de linea
+luego lo guardo como "todos los archivos" con el siguente nombre: MANIFEST.MF
+luego en el cmd pongo la siguente linea de codigo
+
+jar cvfm ProyectoFinal.jar manifest.mf Bienvenida.class Licencia.class Principal.class images/coca-cola.png images/icon.png images/logo-coca.png images/coca-cola-blanco.png
+
+es decir:
+
+jar cvfm nombre.jar manifest.mf todasLasClases.class carpeta/imagenesConExtencion.png
+
+y ya :)
+
+luego debo ejecutar la siguiente linea
+
+java -jar ProyectoFinal.jar
+
+es decir:
+
+java -jar nombre.jar
+
+si abro el jar antes de ejecutar esa linea, no me va a reconocer las imagenes, y si quiero usar mi programa, nadamas necesito mi arcihvo jar junto con la carpeta de recursos
+y ya, eso es todo :)

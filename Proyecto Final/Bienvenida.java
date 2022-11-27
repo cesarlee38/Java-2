@@ -12,6 +12,7 @@ public class Bienvenida extends JFrame implements ActionListener{
   public Bienvenida(){
 
    setLayout(null);
+   setDefaultCloseOperation(EXIT_ON_CLOSE); // esta linea de codigo es para que la aplicacion se cierre cuando clickeamos la tache, para que no quede como un demon
    setTitle("Bienvenida");
    getContentPane().setBackground(new Color(255,0,0));
    setIconImage(new ImageIcon(getClass().getResource("images/icon.png")).getImage());
