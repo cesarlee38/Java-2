@@ -67,7 +67,7 @@ public class Bienvenida extends JFrame implements ActionListener{
      formulario.setVisible(true);
      formulario.setResizable(false);
      formulario.setLocationRelativeTo(null);
-     dispose();
+     dispose();//esta sirve para terminar el jframe sin terminar la aplicacion
      //this.setVisible(false);
    }
   }

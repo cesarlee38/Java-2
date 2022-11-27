@@ -84,6 +84,7 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
     formulario.setVisible(true);
     formulario.setResizable(false);
     formulario.setLocationRelativeTo(null);
+    dispose();
     //this.setVisible(false);
   }
    if(e.getSource() == b2){
@@ -92,6 +93,7 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
     formulario.setVisible(true);
     formulario.setResizable(false);
     formulario.setLocationRelativeTo(null);
+    dispose();
     //this.setVisible(false);
   }
  }

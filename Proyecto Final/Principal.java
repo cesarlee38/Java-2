@@ -13,6 +13,7 @@ public class Principal extends JFrame implements ActionListener{
   private JComboBox cbDepartamento, cbAntiguedad;
   private JScrollPane sp1;
   private JTextArea ta1;
+  private String nombre = "";
 
   public Principal(){
 
@@ -20,6 +21,8 @@ public class Principal extends JFrame implements ActionListener{
    setTitle("Pantalla Principal");
    getContentPane().setBackground(new Color(255,0,0));
    setIconImage(new ImageIcon(getClass().getResource("images/icon.png")).getImage());
+   Bienvenida formulario = new Bienvenida();
+   nombre = formulario.nombre;
 
    mb = new JMenuBar();
    mb.setBackground(new Color(255,0,0));
@@ -95,7 +98,7 @@ public class Principal extends JFrame implements ActionListener{
    lLogo.setBounds(5,5,250,100);
    add(lLogo);
 
-   lBienvenido = new JLabel("Bienvenido");
+   lBienvenido = new JLabel("Bienvenido " + nombre);
    lBienvenido.setBounds(280,30,300,50);
    lBienvenido.setFont(new Font("Andale Mono", 1, 32));
    lBienvenido.setForeground(new Color(255,255,255));
@@ -206,19 +209,117 @@ public class Principal extends JFrame implements ActionListener{
 
   public void actionPerformed(ActionEvent e){
    if(e.getSource() == miCalculo){
+
+    String nombreT = tfNombreTrabajador.getText().trim();
+    String aP = tfApellidoPaterno.getText().trim();
+    String aM = tfApellidoMaterno.getText().trim();
+    String departamento = cbDepartamento.getSelectedItem().toString();
+    String antiguedad = cbAntiguedad.getSelectedItem().toString();
+
+    if(nombreT.equals("") || aP.equals("") || aM.equals("") || departamento.equals("") || antiguedad.equals("")){
+
+     JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
+
+   } else{
+
+     if(departamento.equals("Atención al Cliente")){
+
+      if(antiguedad.equals("1 año de servicio")){
+       ta1.setText("\n  El trabajador " + nombreT + " " + aP + " " + aM +
+                   "\n  quien labora en " + departamento + " con " + antiguedad +
+                   "\n  recibe 6 días de vacaiones.");
+     }
+
+      if(antiguedad.equals("2 a 6 años de servicio")){
+       ta1.setText("\n  El trabajador " + nombreT + " " + aP + " " + aM +
+                   "\n  quien labora en " + departamento + " con " + antiguedad +
+                   "\n  recibe 14 días de vacaiones.");
+     }
+
+      if(antiguedad.equals("7 años o más de servicio")){
+       ta1.setText("\n  El trabajador " + nombreT + " " + aP + " " + aM +
+                   "\n  quien labora en " + departamento + " con " + antiguedad +
+                   "\n  recibe 20 días de vacaiones.");
+     }
+
+    }
+
+     if(departamento.equals("Departamento de Logística")){
+
+      if(antiguedad.equals("1 año de servicio")){
+       ta1.setText("\n  El trabajador " + nombreT + " " + aP + " " + aM +
+                   "\n  quien labora en " + departamento + " con " + antiguedad +
+                   "\n  recibe 7 días de vacaiones.");
+     }
+
+      if(antiguedad.equals("2 a 6 años de servicio")){
+       ta1.setText("\n  El trabajador " + nombreT + " " + aP + " " + aM +
+                   "\n  quien labora en " + departamento + " con " + antiguedad +
+                   "\n  recibe 15 días de vacaiones.");
+     }
+
+      if(antiguedad.equals("7 años o más de servicio")){
+       ta1.setText("\n  El trabajador " + nombreT + " " + aP + " " + aM +
+                   "\n  quien labora en " + departamento + " con " + antiguedad +
+                   "\n  recibe 22 días de vacaiones.");
+     }
+
+    }
+
+     if(departamento.equals("Departamento de Gerencia")){
+
+      if(antiguedad.equals("1 año de servicio")){
+       ta1.setText("\n  El trabajador " + nombreT + " " + aP + " " + aM +
+                   "\n  quien labora en " + departamento + " con " + antiguedad +
+                   "\n  recibe 10 días de vacaiones.");
+     }
+
+      if(antiguedad.equals("2 a 6 años de servicio")){
+       ta1.setText("\n  El trabajador " + nombreT + " " + aP + " " + aM +
+                   "\n  quien labora en " + departamento + " con " + antiguedad +
+                   "\n  recibe 20 días de vacaiones.");
+     }
+
+      if(antiguedad.equals("7 años o más de servicio")){
+       ta1.setText("\n  El trabajador " + nombreT + " " + aP + " " + aM +
+                   "\n  quien labora en " + departamento + " con " + antiguedad +
+                   "\n  recibe 30 días de vacaiones.");
+     }
+
+    }
+
+   }
+
   }
    if(e.getSource() == miRojo){
+    getContentPane().setBackground(new Color(255,0,0));
   }
    if(e.getSource() == miNegro){
+    getContentPane().setBackground(new Color(0,0,0));
   }
    if(e.getSource() == miMorado){
+    getContentPane().setBackground(new Color(51,0,51));
   }
    if(e.getSource() == miNuevo){
+
+    tfNombreTrabajador.setText("");
+    tfApellidoPaterno.setText("");
+    tfApellidoMaterno.setText("");
+    cbDepartamento.setSelectedIndex(0);
+    cbAntiguedad.setSelectedIndex(0);
+    ta1.setText("\n  Aquí aparece el resultado del cálculo de las vacaciones.");
+
   }
    if(e.getSource() == miSalir){
-    System.exit(0);
+    Bienvenida formulario = new Bienvenida();
+    formulario.setBounds(0,0,350,450);
+    formulario.setVisible(true);
+    formulario.setResizable(false);
+    formulario.setLocationRelativeTo(null);
+    dispose();
   }
    if(e.getSource() == miElCreador){
+    JOptionPane.showMessageDialog(null, "Desarrollado por Diego Cesar Morales Díaz");
   }
  }
 
